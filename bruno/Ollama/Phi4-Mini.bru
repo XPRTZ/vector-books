@@ -1,0 +1,21 @@
+meta {
+  name: Phi4-Mini
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:11434/api/chat
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "model": "phi4-mini",
+    "messages": [
+      { "role": "user", "content": "why is the sky blue?" }
+    ],
+    "stream": false
+  }
+}

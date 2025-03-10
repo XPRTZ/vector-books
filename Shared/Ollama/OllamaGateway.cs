@@ -28,5 +28,30 @@ namespace Shared.Ollama
 
             return embeddingResponse?.Embedding ?? Array.Empty<float>();
         }
+
+        // Get chat completion
+        public async static Task<string> GetChatCompletionAsync(HttpClient client, string prompt)
+        {
+            string url = "http://localhost:11434/api/chat";
+            var requestData = new
+            {
+                model = "phi4-mini",
+                messages = new[]
+                {
+                    new { role = "user", content = prompt }
+                },
+                stream = false
+            };
+            string jsonRequest = JsonSerializer.Serialize(requestData);
+            var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await client.PostAsync(url, content);
+            response.EnsureSuccessStatusCode();
+
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            var chatResponse = JsonSerializer.Deserialize<ChatResponse>(jsonResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            return chatResponse?.Message?.Content ?? string.Empty;
+        }
     }
 }
