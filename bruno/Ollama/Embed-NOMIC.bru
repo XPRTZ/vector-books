@@ -1,0 +1,19 @@
+meta {
+  name: Embed-NOMIC
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:11434/api/embeddings
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "model": "nomic-embed-text",
+    "prompt": "A sci-fi book about space travel and politics"
+  }
+  
+}

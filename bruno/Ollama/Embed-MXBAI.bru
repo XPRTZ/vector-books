@@ -1,0 +1,19 @@
+meta {
+  name: Embed-MXBAI
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:11434/api/embeddings
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "model": "mxbai-embed-large",
+    "prompt": "A sci-fi book about space travel and politics"
+  }
+  
+}
