@@ -38,12 +38,3 @@ appsettings.Local.json
 # Ignore Docker files
 docker-compose.override.yml
 docker-compose.debug.yml
-
-# Ignore database files (if local)
-postgres-data/
-*.sqlite
-*.sql
-
-# Ignore Ollama cache (if used locally)
-ollama_data/
-models/
