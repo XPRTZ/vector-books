@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35825.156 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VectorBooks", "VectorBooks.csproj", "{492616BD-3BD5-4F9C-A2E3-1F9125DA8BBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookEmbedder", "..\BookEmbedder\BookEmbedder.csproj", "{D6EADD10-99E6-4753-B2FD-20BEFC81FCFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{492616BD-3BD5-4F9C-A2E3-1F9125DA8BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{492616BD-3BD5-4F9C-A2E3-1F9125DA8BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{492616BD-3BD5-4F9C-A2E3-1F9125DA8BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6EADD10-99E6-4753-B2FD-20BEFC81FCFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6EADD10-99E6-4753-B2FD-20BEFC81FCFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6EADD10-99E6-4753-B2FD-20BEFC81FCFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6EADD10-99E6-4753-B2FD-20BEFC81FCFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
