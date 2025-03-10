@@ -1,0 +1,49 @@
+# Ignore build output
+bin/
+obj/
+
+# Ignore .NET user settings
+*.user
+*.suo
+*.vs
+.vscode/
+*.dbmdl
+*.log
+*.ncrunch*
+*.sln.cache
+*.sln.ide
+
+# Ignore dependencies
+node_modules/
+packages/
+wwwroot/lib/
+
+# Ignore environment and secrets
+.env
+.env.local
+secrets.json
+appsettings.Local.json
+
+# Ignore compiled DLLs and EXEs
+*.exe
+*.dll
+*.pdb
+*.log
+*.cache
+
+# Ignore JetBrains Rider/Resharper files
+.idea/
+*.sln.DotSettings
+
+# Ignore Docker files
+docker-compose.override.yml
+docker-compose.debug.yml
+
+# Ignore database files (if local)
+postgres-data/
+*.sqlite
+*.sql
+
+# Ignore Ollama cache (if used locally)
+ollama_data/
+models/
