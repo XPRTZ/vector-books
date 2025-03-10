@@ -1,4 +1,4 @@
-﻿using BookEmbedder.Models;
+﻿using Shared.Models;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -13,12 +13,11 @@ public class BookJsonConverter : JsonConverter<Book>
             var root = doc.RootElement;
 
             // Extract values with fallback defaults
-            int index = root.GetProperty("index").GetInt32();
             string title = root.GetProperty("title").ToString(); // Convert everything to string
             string genre = root.GetProperty("genre").GetString() ?? "Unknown";
             string summary = root.GetProperty("summary").GetString() ?? "";
 
-            return new Book(index, title, genre, summary);
+            return new Book(title, genre, summary);
         }
     }
 
@@ -26,7 +25,6 @@ public class BookJsonConverter : JsonConverter<Book>
     {
         JsonSerializer.Serialize(writer, new
         {
-            index = value.Index,
             title = value.Title,
             genre = value.Genre,
             summary = value.Summary
