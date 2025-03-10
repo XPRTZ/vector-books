@@ -29,38 +29,38 @@ using var conn = new NpgsqlConnection(connectionString);
 await conn.OpenAsync();
 
 // Get embedding for user input
-// var embedding = await OllamaGateway.GetEmbeddingAsync(httpClient, query);
+var embedding = await OllamaGateway.GetEmbeddingAsync(query);
 
 // Get chat completion for user input
-var completion = await OllamaGateway.GetChatCompletionAsync(httpClient, query);
+//var completion = await OllamaGateway.GetChatCompletionAsync(httpClient, query);
 
 // Display chat completion
-Console.WriteLine($"Chat completion: {completion}");
+//Console.WriteLine($"Chat completion: {completion}");
 
-// if (embedding.Length == 0)
-// {
-//     Console.WriteLine("Failed to retrieve embedding. Exiting.");
-//     return;
-// }
+if (embedding.Length == 0)
+{
+    Console.WriteLine("Failed to retrieve embedding. Exiting.");
+    return;
+}
 
-// // Retrieve recommended books
-// var recommendations = await GetRecommendedBooksAsync(conn, embedding);
+// Retrieve recommended books
+var recommendations = await GetRecommendedBooksAsync(conn, embedding);
 
-// // Display recommendations
-// if (recommendations.Count == 0)
-// {
-//     Console.WriteLine("No similar books found.");
-// }
-// else
-// {
-//     Console.WriteLine("Recommended Books:");
-//     foreach (var book in recommendations)
-//     {
-//         Console.WriteLine($"Title: {book.Title}");
-//         Console.WriteLine($"Summary: {book.Summary[..Math.Min(200, book.Summary.Length)]}..."); // Truncate long summaries
-//         Console.WriteLine("----");
-//     }
-// }
+// Display recommendations
+if (recommendations.Count == 0)
+{
+    Console.WriteLine("No similar books found.");
+}
+else
+{
+    Console.WriteLine("Recommended Books:");
+    foreach (var book in recommendations)
+    {
+        Console.WriteLine($"Title: {book.Title}");
+        Console.WriteLine($"Summary: {book.Summary[..Math.Min(200, book.Summary.Length)]}..."); // Truncate long summaries
+        Console.WriteLine("----");
+    }
+}
 
 // Retrieve recommended books based on query embedding
 async Task<List<Book>> GetRecommendedBooksAsync(NpgsqlConnection conn, float[] queryEmbedding)

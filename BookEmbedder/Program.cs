@@ -37,7 +37,7 @@ using var cmd = new NpgsqlCommand("INSERT INTO books (title, summary, genre, emb
 
 foreach (var book in books)
 {
-    var embedding = await OllamaGateway.GetEmbeddingAsync(httpClient, book.Summary);
+    var embedding = await OllamaGateway.GetEmbeddingAsync(book.Summary);
 
     cmd.Parameters.Clear();
     cmd.Parameters.AddWithValue("title", book.Title);
